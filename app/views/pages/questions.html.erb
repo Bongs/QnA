@@ -7,8 +7,12 @@
 </div>
 <div class="row">
 	<div class="span9">
-		<%= render :partial => "pages/question", :collection => @questions %>
-		<div><%= paginate @questions %></div>
+		<% if @questions.blank? %>
+			<h3>Your questions will be listed here.</h3>
+		<% else %>
+			<%= render :partial => "pages/question", :collection => @questions %>
+			<div><%= paginate @questions %></div>
+		<% end %>
 	</div>
 	<div class="span3">
 		<div class="well sidebar-nav">
