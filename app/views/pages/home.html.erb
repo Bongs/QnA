@@ -1,3 +1,4 @@
+<% content_for :head, auto_discovery_link_tag(:rss, questions_url(:format => "rss")) %>
 <% if !user_signed_in? %>
 	<div class="hero-unit">
 		<h1>QnA</h1>
@@ -18,6 +19,12 @@
 			<div><%= paginate @questions %></div>
 		</div>
 		<div class="span3">
+			<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li class="nav-header">All QnA rss</li>
+					<li><%= link_to image_tag("feed-icon-28x28.png")+content_tag(:span, ' All QnA', :style => "vertical-align:middle;"), questions_url(:format => "rss") %></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 <% end %>

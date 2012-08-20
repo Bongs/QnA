@@ -4,12 +4,13 @@ class PagesController < ApplicationController
   def home
     @questions = Question.order("created_at DESC").page(params[:page]).per(10)
     
-    @latest_answered_qid = Answer.select("DISTINCT(question_id)").last(5).reverse
+    #@latest_answered_qid = Answer.select("DISTINCT(question_id)").last(5).reverse
     #@latest_answered_q = Question.find(:all, :conditions => "id in (#{@latest_answered_qid})")
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pages }
+      format.rss
     end
   end
   
@@ -19,6 +20,7 @@ class PagesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @questions }
+      format.rss
     end
   end
 end

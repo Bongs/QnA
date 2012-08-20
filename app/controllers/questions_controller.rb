@@ -2,11 +2,12 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.find(:all, :order => "created_at DESC", :include => :user) # .page(params[:page]).per(5)
+    @questions = Question.includes(:user, :answers).order("created_at DESC")
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @questions }
+      #format.html # index.html.erb
+      #format.json { render json: @questions }
+      format.rss
     end
   end
 

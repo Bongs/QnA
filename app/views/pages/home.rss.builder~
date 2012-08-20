@@ -1,0 +1,18 @@
+xml.instruct! :xml, version: "1.0" 
+xml.rss version: "2.0" do
+  xml.channel do
+    xml.title "QnA"
+    xml.description "Question ans Answer site"
+    xml.link questions_url
+
+    @questions.each do |q|
+      xml.item do
+        xml.title q.title
+        xml.description q.body
+        xml.pubDate article.created_at.to_s(:rfc822)
+        xml.link q_url(q)
+        xml.guid q_url(q)
+      end
+    end
+  end
+end
