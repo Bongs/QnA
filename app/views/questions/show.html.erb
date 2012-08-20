@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="span9">
+		<div class="page-header">
+			<h3><%= @question.title %></h3>
+		</div>
+		<p class="qna-q-d"><%= @question.body %></p>
+		<div class="qna-q-a">
+			<%= render :partial => "questions/answer", :collection => @answers %>
+		</div>
+		<hr/>
+		<%= render :partial => "answers/form" %>
+	</div>
+	<div class="span3">
+		<div class="well sidebar-nav">
+			<ul class="nav nav-list">
+				<li class="nav-header">Asked by</li>
+				<li><%= @question.user.email %></li>
+				<li class="nav-header">Answered by</li>
+				<%= render :partial => "questions/answerer", :collection => @answers %>
+			</ul>
+		</div>
+	</div>
+</div>

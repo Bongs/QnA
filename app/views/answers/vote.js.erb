@@ -1,0 +1,6 @@
+<% if @ans_voted %>
+	$(".alert").removeClass("alert-error").addClass("alert-info").html("<%= @alert %>").slideDown("slow");
+	$("#avc-<%= @answer.id %>").html("<%= @vc %>")
+<% else %>
+	$(".alert").removeClass("alert-info").addClass("alert-error").html("<%= @alert %>").slideDown("slow");
+<% end %>

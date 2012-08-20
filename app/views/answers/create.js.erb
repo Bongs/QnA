@@ -1,0 +1,3 @@
+var new_elem = $("<%= escape_javascript(render :partial => 'questions/answer', :locals => { :answer => @answer }) %>").hide();
+$("div.qna-q-a").append(new_elem);
+new_elem.slideDown("slow");

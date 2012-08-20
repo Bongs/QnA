@@ -1,0 +1,19 @@
+<div>
+	<hr/>
+	<div class="row">
+		<div class="span1 vote-section">
+			<div class="vote-control">
+				<%= link_to content_tag(:i, '', :class => "icon-chevron-up"), vote_answer_path(answer, type: "up"), :class => "vote-ans" %>
+			</div>
+			<div id="avc-<%= answer.id %>" class="vote-control vote-count">
+				<%= answer.reputation_value_for(:votes).to_i %>
+			</div>
+			<div class="vote-control">
+				<%= link_to content_tag(:i, '', :class => "icon-chevron-down"), vote_answer_path(answer, type: "down"), :class => "vote-ans" %>
+			</div>
+		</div>
+		<div class="span8 qna-q-a-d">
+			<%= answer.body %>
+		</div>
+	</div>
+</div>

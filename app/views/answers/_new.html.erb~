@@ -1,0 +1,5 @@
+<div class="page-header">
+	<h5>Add answer</h5>
+</div>
+
+<%= render 'form' %>

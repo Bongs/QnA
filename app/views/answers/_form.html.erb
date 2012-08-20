@@ -1,0 +1,20 @@
+<% @answer = Answer.new if @answer.blank? %>
+<%= form_for @answer, :html => { :class => "form-horizontal new_answer" } do |f| %>
+	<% if @answer.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+			<ul>
+				<% @answer.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<%= f.hidden_field :question_id, :value => @question.id %>
+	<fieldset>
+		<div class="control-group">
+			<%= f.text_area :body, :placeholder => "Add answer", :class => "input-xxlarge qna-ta-a" %>
+		</div>
+		<%= f.submit "Add", :class => "btn" %>
+	</fieldset>
+<% end %>

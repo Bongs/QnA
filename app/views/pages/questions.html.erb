@@ -1,0 +1,14 @@
+<div class="page-header">
+	<h1>
+		Questions
+		<%= link_to "Ask question", new_question_path, :class => "btn btn-primary pull-right" %>
+	</h1>
+</div>
+<div class="row">
+	<div class="span9">
+		<%= render :partial => "pages/question", :collection => @questions %>
+		<div><%= paginate @questions %></div>
+	</div>
+	<div class="span3">
+	</div>
+</div>
